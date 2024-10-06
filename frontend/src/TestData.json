@@ -1,0 +1,301 @@
+{
+  "nodes": [
+    {
+      "id": "app.py",
+      "label": "app.py",
+      "imports": ["flask.Flask", "controllers.user_controller.user_routes"],
+      "imported_by": []
+    },
+    {
+      "id": "flask.Flask",
+      "label": "flask.Flask",
+      "imports": [],
+      "imported_by": ["app.py"]
+    },
+    {
+      "id": "controllers.user_controller.user_routes",
+      "label": "controllers.user_controller.user_routes",
+      "imports": [],
+      "imported_by": ["app.py", "models/user.py"]
+    },
+    {
+      "id": "utils/auth_utils.py",
+      "label": "utils/auth_utils.py",
+      "imports": ["services.auth_service.authenticate_user"],
+      "imported_by": []
+    },
+    {
+      "id": "services.auth_service.authenticate_user",
+      "label": "services.auth_service.authenticate_user",
+      "imports": [],
+      "imported_by": [
+        "utils/auth_utils.py",
+        "controllers/auth_controller.py",
+        "services/order_service.py",
+        "services/user_service.py",
+        "services/product_service.py"
+      ]
+    },
+    {
+      "id": "utils/common.py",
+      "label": "utils/common.py",
+      "imports": [
+        "services.session_service.check_session",
+        "utils.auth_utils.validate_credentials"
+      ],
+      "imported_by": []
+    },
+    {
+      "id": "services.session_service.check_session",
+      "label": "services.session_service.check_session",
+      "imports": [],
+      "imported_by": ["utils/common.py"]
+    },
+    {
+      "id": "utils.auth_utils.validate_credentials",
+      "label": "utils.auth_utils.validate_credentials",
+      "imports": [],
+      "imported_by": ["utils/common.py", "services/auth_service.py"]
+    },
+    {
+      "id": "utils/another_util.py",
+      "label": "utils/another_util.py",
+      "imports": ["services.user_service.get_user"],
+      "imported_by": []
+    },
+    {
+      "id": "services.user_service.get_user",
+      "label": "services.user_service.get_user",
+      "imports": [],
+      "imported_by": [
+        "utils/another_util.py",
+        "models/order.py",
+        "controllers/user_controller.py"
+      ]
+    },
+    {
+      "id": "models/user.py",
+      "label": "models/user.py",
+      "imports": ["controllers.user_controller.user_routes"],
+      "imported_by": []
+    },
+    {
+      "id": "models/order.py",
+      "label": "models/order.py",
+      "imports": [
+        "services.user_service.get_user",
+        "services.product_service.get_product"
+      ],
+      "imported_by": []
+    },
+    {
+      "id": "services.product_service.get_product",
+      "label": "services.product_service.get_product",
+      "imports": [],
+      "imported_by": ["models/order.py", "controllers/product_controller.py"]
+    },
+    {
+      "id": "models/product.py",
+      "label": "models/product.py",
+      "imports": ["controllers.product_controller.product_routes"],
+      "imported_by": []
+    },
+    {
+      "id": "controllers.product_controller.product_routes",
+      "label": "controllers.product_controller.product_routes",
+      "imports": [],
+      "imported_by": ["models/product.py"]
+    },
+    {
+      "id": "controllers/auth_controller.py",
+      "label": "controllers/auth_controller.py",
+      "imports": ["flask.Blueprint", "services.auth_service.authenticate_user"],
+      "imported_by": []
+    },
+    {
+      "id": "flask.Blueprint",
+      "label": "flask.Blueprint",
+      "imports": [],
+      "imported_by": [
+        "controllers/auth_controller.py",
+        "controllers/user_controller.py",
+        "controllers/product_controller.py"
+      ]
+    },
+    {
+      "id": "controllers/user_controller.py",
+      "label": "controllers/user_controller.py",
+      "imports": ["flask.Blueprint", "services.user_service.get_user"],
+      "imported_by": []
+    },
+    {
+      "id": "controllers/product_controller.py",
+      "label": "controllers/product_controller.py",
+      "imports": ["flask.Blueprint", "services.product_service.get_product"],
+      "imported_by": []
+    },
+    {
+      "id": "services/auth_service.py",
+      "label": "services/auth_service.py",
+      "imports": ["models.user.User", "utils.auth_utils.validate_credentials"],
+      "imported_by": []
+    },
+    {
+      "id": "models.user.User",
+      "label": "models.user.User",
+      "imports": [],
+      "imported_by": [
+        "services/auth_service.py",
+        "services/session_service.py",
+        "services/user_service.py"
+      ]
+    },
+    {
+      "id": "services/order_service.py",
+      "label": "services/order_service.py",
+      "imports": [
+        "models.order.Order",
+        "utils.common.some_util_function",
+        "services.auth_service.authenticate_user"
+      ],
+      "imported_by": []
+    },
+    {
+      "id": "models.order.Order",
+      "label": "models.order.Order",
+      "imports": [],
+      "imported_by": ["services/order_service.py"]
+    },
+    {
+      "id": "utils.common.some_util_function",
+      "label": "utils.common.some_util_function",
+      "imports": [],
+      "imported_by": ["services/order_service.py", "services/user_service.py"]
+    },
+    {
+      "id": "services/session_service.py",
+      "label": "services/session_service.py",
+      "imports": ["models.user.User"],
+      "imported_by": []
+    },
+    {
+      "id": "services/user_service.py",
+      "label": "services/user_service.py",
+      "imports": [
+        "models.user.User",
+        "services.auth_service.authenticate_user",
+        "utils.common.some_util_function"
+      ],
+      "imported_by": []
+    },
+    {
+      "id": "services/product_service.py",
+      "label": "services/product_service.py",
+      "imports": [
+        "models.product.Product",
+        "utils.another_util.another_util_function",
+        "services.auth_service.authenticate_user"
+      ],
+      "imported_by": []
+    },
+    {
+      "id": "models.product.Product",
+      "label": "models.product.Product",
+      "imports": [],
+      "imported_by": ["services/product_service.py"]
+    },
+    {
+      "id": "utils.another_util.another_util_function",
+      "label": "utils.another_util.another_util_function",
+      "imports": [],
+      "imported_by": ["services/product_service.py"]
+    }
+  ],
+  "links": [
+    { "source": "app.py", "target": "flask.Flask" },
+    { "source": "app.py", "target": "controllers.user_controller.user_routes" },
+    {
+      "source": "utils/auth_utils.py",
+      "target": "services.auth_service.authenticate_user"
+    },
+    {
+      "source": "utils/common.py",
+      "target": "services.session_service.check_session"
+    },
+    {
+      "source": "utils/common.py",
+      "target": "utils.auth_utils.validate_credentials"
+    },
+    {
+      "source": "utils/another_util.py",
+      "target": "services.user_service.get_user"
+    },
+    {
+      "source": "models/user.py",
+      "target": "controllers.user_controller.user_routes"
+    },
+    { "source": "models/order.py", "target": "services.user_service.get_user" },
+    {
+      "source": "models/order.py",
+      "target": "services.product_service.get_product"
+    },
+    {
+      "source": "models/product.py",
+      "target": "controllers.product_controller.product_routes"
+    },
+    { "source": "controllers/auth_controller.py", "target": "flask.Blueprint" },
+    {
+      "source": "controllers/auth_controller.py",
+      "target": "services.auth_service.authenticate_user"
+    },
+    { "source": "controllers/user_controller.py", "target": "flask.Blueprint" },
+    {
+      "source": "controllers/user_controller.py",
+      "target": "services.user_service.get_user"
+    },
+    {
+      "source": "controllers/product_controller.py",
+      "target": "flask.Blueprint"
+    },
+    {
+      "source": "controllers/product_controller.py",
+      "target": "services.product_service.get_product"
+    },
+    { "source": "services/auth_service.py", "target": "models.user.User" },
+    {
+      "source": "services/auth_service.py",
+      "target": "utils.auth_utils.validate_credentials"
+    },
+    { "source": "services/order_service.py", "target": "models.order.Order" },
+    {
+      "source": "services/order_service.py",
+      "target": "utils.common.some_util_function"
+    },
+    {
+      "source": "services/order_service.py",
+      "target": "services.auth_service.authenticate_user"
+    },
+    { "source": "services/session_service.py", "target": "models.user.User" },
+    { "source": "services/user_service.py", "target": "models.user.User" },
+    {
+      "source": "services/user_service.py",
+      "target": "services.auth_service.authenticate_user"
+    },
+    {
+      "source": "services/user_service.py",
+      "target": "utils.common.some_util_function"
+    },
+    {
+      "source": "services/product_service.py",
+      "target": "models.product.Product"
+    },
+    {
+      "source": "services/product_service.py",
+      "target": "utils.another_util.another_util_function"
+    },
+    {
+      "source": "services/product_service.py",
+      "target": "services.auth_service.authenticate_user"
+    }
+  ]
+}
