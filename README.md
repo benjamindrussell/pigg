@@ -1,6 +1,6 @@
-# FastAPI + React Monorepo
+# P.I.G.G.
 
-This project demonstrates a FastAPI backend with a React frontend, both hosted on the same domain.
+Python Import Graph Generator
 
 ## Setup
 
@@ -32,5 +32,5 @@ This project demonstrates a FastAPI backend with a React frontend, both hosted o
 
 ## Development
 
-- For frontend development, run `npm start` in the `frontend` directory.
+- For frontend development, run `npm run dev` in the `frontend` directory.
 - For backend development, run `uvicorn main:app --reload` in the `backend` directory.
