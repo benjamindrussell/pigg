@@ -35,6 +35,10 @@ def create_import_graph(directory: str) -> nx.DiGraph:
     G: nx.DiGraph = nx.DiGraph()
     
     for root, dirs, files in os.walk(directory):
+        # Skip the venv folder
+        if 'venv' in dirs:
+            dirs.remove('venv')
+
         for file in files:
             if file.endswith('.py'):
                 file_path: str = os.path.join(root, file)

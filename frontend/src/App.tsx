@@ -16,7 +16,7 @@ function App() {
     setFilePath('');
   }
 
-  const getTitle = () => {
+  function getTitle(): string {
     const tokens = filePath.split("/");
     return tokens[tokens.length - 1];
   }
