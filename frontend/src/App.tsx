@@ -16,9 +16,14 @@ function App() {
     setFilePath('');
   }
 
+  const getTitle = () => {
+    const tokens = filePath.split("/");
+    return tokens[tokens.length - 1];
+  }
+
   return (
     <div className='text-white font-mono'>
-      <Navbar />
+      <Navbar title={getTitle()}/>
       {filePath ?
         <div className='relative'>
           <button onClick={handleClick} className='absolute flex top-[70px] left-1 z-40 items-center justify-evenly border-2 rounded-md font-bold px-1'>back <Undo2 /></button>
