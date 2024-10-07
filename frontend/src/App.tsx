@@ -10,6 +10,7 @@ function App() {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFilePath(inputValue);
+    setInputValue("");
   };
 
   const handleClick = () => {
@@ -31,12 +32,10 @@ function App() {
         </div> :
         <div className='w-screen h-screen flex items-center justify-center'>
           <form onSubmit={handleSubmit} className='flex gap-2 items-center'>
-              <label htmlFor="singleInput">
-                File Path:
-              </label>
+              <label htmlFor="directoryInput">Directory:</label>
               <input
                 type="text"
-                id="singleInput"
+                id="directoryInput"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 className='text-black w-[400px] min-w-60 rounded-md p-1'
